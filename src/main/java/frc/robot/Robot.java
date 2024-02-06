@@ -96,6 +96,10 @@ public class Robot extends TimedRobot {
     double y = ty1.getDouble(0.0);
     double area = ta1.getDouble(0.0);
 
+
+      NetworkTableEntry tx2 = table2.getEntry("tx2");
+  NetworkTableEntry ty2 = table2.getEntry("ty2");
+  NetworkTableEntry ta2 = table2.getEntry("ta2");
     double x2 = tx2.getDouble(0.0);
     double y2 = ty2.getDouble(0.0);
     double area2 = ta2.getDouble(0.0);
@@ -113,9 +117,9 @@ public class Robot extends TimedRobot {
     SmartDashboard.putNumber("LimelightY2", y2);
     SmartDashboard.putNumber("LimelightArea2", area2);
 
-    NetworkTable table = NetworkTableInstance.getDefault().getTable("limelight");
-    NetworkTableEntry ty = table.getEntry("ty");
-    double targetOffsetAngle_Vertical = ty.getDouble(0.0);
+    // NetworkTable table = NetworkTableInstance.getDefault().getTable("limelight-lunas");
+    // NetworkTableEntry ty = table.getEntry("ty");
+    double targetOffsetAngle_Vertical = y2;
 
     // how many degrees back is your limelight rotated from perfectly vertical?
     double limelightMountAngleDegrees = 110.0; 
@@ -132,7 +136,7 @@ public class Robot extends TimedRobot {
     //calculate distance
     double distanceFromLimelightToGoalInches = (goalHeightInches - limelightLensHeightInches) / Math.tan(angleToGoalRadians);
 
-
+    SmartDashboard.putNumber("LimelightToGoal", distanceFromLimelightToGoalInches);
   }
 
   /** This function is called once when the robot is disabled. */
